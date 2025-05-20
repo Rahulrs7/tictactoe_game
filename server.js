@@ -3,6 +3,7 @@ import http from 'http';
 import { Server } from 'socket.io';
 
 const app = express();
+const cors = require('cors');
 const server = http.createServer(app);
 const allowedOrigin = 'https://tictactoe-game-ppu3.vercel.app';
 
