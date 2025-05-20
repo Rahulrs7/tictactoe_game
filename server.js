@@ -4,11 +4,13 @@ import { Server } from 'socket.io';
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server, {
-  cors: {
-    origin: '*',
-  },
-});
+const allowedOrigin = 'https://tictactoe-game-ppu3.vercel.app';
+
+app.use(cors({
+  origin: allowedOrigin,
+  methods: ['GET', 'POST'],
+  credentials: true
+}));
 
 let waitingPlayers = [];
 
